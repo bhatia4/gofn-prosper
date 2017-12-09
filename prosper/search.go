@@ -284,3 +284,7 @@ func ratingToString(r Rating) string {
 	}
 	return s
 }
+
+func RatingToString(r Rating) string {
+	return ratingToString(r)
+}

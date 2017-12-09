@@ -37,6 +37,11 @@ func NewInt32Range(min, max int32) Int32Range {
 	return Int32Range{&min, &max}
 }
 
+// NewTimeRange creates a new TimeRange object.
+func NewTimeRange(min, max time.Time) TimeRange {
+	return TimeRange{&min, &max}
+}
+
 // Float64RangeEqual returns true if two ranges are equal.
 func Float64RangeEqual(a, b Float64Range) bool {
 	if (a.Min == nil && b.Min != nil) ||

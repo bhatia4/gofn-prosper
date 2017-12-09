@@ -30,41 +30,15 @@ func (p defaultListingParser) Parse(r thin.SearchResult) (Listing, error) {
 		return Listing{}, err
 	}
 	oldestTradeOpenDate, err := parseProsperOldTime(r.OldestTradeOpenDate)
-	if err != nil {
-		return Listing{}, err
-	}
 	firstRecordedCreditLine, err := parseProsperTime(r.FirstRecordedCreditLine)
-	if err != nil {
-		return Listing{}, err
-	}
 	creditPullDate, err := parseProsperTime(r.CreditPullDate)
-	if err != nil {
-		return Listing{}, err
-	}
 	listingCreationDate, err := parseProsperTime(r.ListingCreationDate)
-	if err != nil {
-		return Listing{}, err
-	}
 	listingEndDate, err := parseProsperTime(r.ListingEndDate)
-	if err != nil {
-		return Listing{}, err
-	}
 	listingStartDate, err := parseProsperTime(r.ListingStartDate)
-	if err != nil {
-		return Listing{}, err
-	}
 	wholeLoanStartDate, err := parseProsperTime(r.WholeLoanStartDate)
-	if err != nil {
-		return Listing{}, err
-	}
 	wholeLoanEndDate, err := parseProsperTime(r.WholeLoanEndDate)
-	if err != nil {
-		return Listing{}, err
-	}
 	lastUpdatedDate, err := parseProsperTime(r.LastUpdatedDate)
-	if err != nil {
-		return Listing{}, err
-	}
+
 	return Listing{
 		PriorProsperLoans:                         r.PriorProsperLoans,
 		AmountDelinquent:                          r.AmountDelinquent,
@@ -114,7 +88,7 @@ func (p defaultListingParser) Parse(r thin.SearchResult) (Listing, error) {
 		InvestmentTypeDescription:                 r.InvestmentTypeDescription,
 		ListingStatusReason:                       r.ListingStatusReason,
 		MonthlyDebt:                               r.MonthlyDebt,
-		MonthsEmployed:                            r.MonthsEmployed,
+		MonthsEmployed:                            int64(r.MonthsEmployed),
 		PartialFundingIndicator:                   r.PartialFundingIndicator,
 		Rating:                                    rating,
 		ProsperScore:                              r.ProsperScore,
@@ -187,10 +161,11 @@ func parseFicoScore(ficoScore string) (FicoScore, error) {
 		"780-799": Between780And799,
 		"800-819": Between800And819,
 		"820-850": Between820And850,
+		"N/A"	 : FicoScoreInvalid,
 	}
 	parsed, ok := stringToScore[ficoScore]
 	if !ok {
-		return FicoScoreInvalid, fmt.Errorf("unrecognized fico score: %s", ficoScore)
+		return FicoScoreInvalid, nil
 	}
 	return parsed, nil
 }

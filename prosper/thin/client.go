@@ -18,6 +18,7 @@ import (
 )
 
 const baseProsperURL = "https://api.prosper.com/v1"
+const baseProsperURLForListingsAPI = "https://api.prosper.com"
 
 // Client is an interface for the thin Prosper REST APIs.
 type Client interface {
@@ -30,7 +31,7 @@ type Client interface {
 
 // defaultClient is the default implementation of the Client interface.
 type defaultClient struct {
-	baseURL      string
+	baseURL, baseURLForListingsAPI      string
 	tokenManager auth.TokenManager
 }
 
@@ -38,6 +39,7 @@ type defaultClient struct {
 func NewClient(t auth.TokenManager) Client {
 	return &defaultClient{
 		baseURL:      baseProsperURL,
+		baseURLForListingsAPI: 	baseProsperURLForListingsAPI,
 		tokenManager: t,
 	}
 }
