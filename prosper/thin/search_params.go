@@ -5,7 +5,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/mtlynch/gofn-prosper/interval"
+	"github.com/bhatia4/gofn-prosper/interval"
 )
 
 func stringsToClauseValues(name string, s []string) string {

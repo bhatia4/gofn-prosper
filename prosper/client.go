@@ -2,8 +2,8 @@
 package prosper
 
 import (
-	"github.com/mtlynch/gofn-prosper/prosper/auth"
-	"github.com/mtlynch/gofn-prosper/prosper/thin"
+	"github.com/bhatia4/gofn-prosper/prosper/auth"
+	"github.com/bhatia4/gofn-prosper/prosper/thin"
 )
 
 // Client is a Prosper client that communicates with the Prosper HTTP endpoints.

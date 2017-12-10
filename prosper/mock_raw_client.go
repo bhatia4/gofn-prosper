@@ -3,7 +3,7 @@ package prosper
 import (
 	"errors"
 
-	"github.com/mtlynch/gofn-prosper/prosper/thin"
+	"github.com/bhatia4/gofn-prosper/prosper/thin"
 )
 
 type mockRawClient struct {

@@ -4,8 +4,8 @@ import (
 	"log"
 	"time"
 
-	"github.com/mtlynch/gofn-prosper/interval"
-	"github.com/mtlynch/gofn-prosper/prosper/thin"
+	"github.com/bhatia4/gofn-prosper/interval"
+	"github.com/bhatia4/gofn-prosper/prosper/thin"
 )
 
 // IncomeRange represents the income range for the borrower associated with a

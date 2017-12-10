@@ -14,7 +14,7 @@ import (
 	"regexp"
 	"time"
 
-	"github.com/mtlynch/gofn-prosper/prosper/auth"
+	"github.com/bhatia4/gofn-prosper/prosper/auth"
 )
 
 const baseProsperURL = "https://api.prosper.com/v1"

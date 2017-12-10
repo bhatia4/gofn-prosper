@@ -3,7 +3,7 @@ package prosper
 import (
 	"time"
 
-	"github.com/mtlynch/gofn-prosper/prosper/thin"
+	"github.com/bhatia4/gofn-prosper/prosper/thin"
 )
 
 // BidStatusValue represents the status of an order. The values correspond to

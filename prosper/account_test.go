@@ -6,7 +6,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/mtlynch/gofn-prosper/prosper/thin"
+	"github.com/bhatia4/gofn-prosper/prosper/thin"
 )
 
 func (c *mockRawClient) Account(thin.AccountParams) (thin.AccountResponse, error) {

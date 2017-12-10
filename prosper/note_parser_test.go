@@ -5,7 +5,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/mtlynch/gofn-prosper/prosper/thin"
+	"github.com/bhatia4/gofn-prosper/prosper/thin"
 )
 
 func TestNoteParser(t *testing.T) {

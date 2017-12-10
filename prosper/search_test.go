@@ -5,8 +5,8 @@ import (
 	"reflect"
 	"testing"
 
-	"github.com/mtlynch/gofn-prosper/interval"
-	"github.com/mtlynch/gofn-prosper/prosper/thin"
+	"github.com/bhatia4/gofn-prosper/interval"
+	"github.com/bhatia4/gofn-prosper/prosper/thin"
 )
 
 func (c *mockRawClient) Search(p thin.SearchParams) (thin.SearchResponse, error) {

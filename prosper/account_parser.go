@@ -1,6 +1,6 @@
 package prosper
 
-import "github.com/mtlynch/gofn-prosper/prosper/thin"
+import "github.com/bhatia4/gofn-prosper/prosper/thin"
 
 type accountParser interface {
 	Parse(thin.AccountResponse) (AccountInformation, error)

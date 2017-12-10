@@ -4,7 +4,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/mtlynch/gofn-prosper/interval"
+	"github.com/bhatia4/gofn-prosper/interval"
 )
 
 func TestSearchParamsToQueryString(t *testing.T) {

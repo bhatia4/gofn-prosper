@@ -6,7 +6,7 @@ import (
 	"reflect"
 	"testing"
 
-	"github.com/mtlynch/gofn-prosper/prosper/auth"
+	"github.com/bhatia4/gofn-prosper/prosper/auth"
 )
 
 type mockTokenManager struct {

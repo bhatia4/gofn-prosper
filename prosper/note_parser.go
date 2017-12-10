@@ -3,7 +3,7 @@ package prosper
 import (
 	"fmt"
 
-	"github.com/mtlynch/gofn-prosper/prosper/thin"
+	"github.com/bhatia4/gofn-prosper/prosper/thin"
 )
 
 type noteParser interface {

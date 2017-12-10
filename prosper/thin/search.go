@@ -1,6 +1,6 @@
 package thin
 
-import "github.com/mtlynch/gofn-prosper/interval"
+import "github.com/bhatia4/gofn-prosper/interval"
 
 type (
 	// SearchFilter specifies a filter for the types of listings to retrieve in
