@@ -79,6 +79,9 @@ func searchParamsToQueryString(p SearchParams) string {
 	if len(p.Filter.ListingStatus) > 0 {
 		clauses = append(clauses, intsToClauseValues("listing_status", p.Filter.ListingStatus))
 	}
+	if len(p.Filter.ListingTerm) > 0 {
+		clauses = append(clauses, intsToClauseValues("listing_term", p.Filter.ListingTerm))
+	}
 	clauses = append(clauses, float64RangeToClauses("estimated_return", p.Filter.EstimatedReturn)...)
 	clauses = append(clauses, int32RangeToClauses("inquiries_last6_months", p.Filter.InquiriesLast6Months)...)
 	clauses = append(clauses, int32RangeToClauses("prior_prosper_loans_late_payments_one_month_plus", p.Filter.PriorProsperLoansLatePaymentsOneMonthPlus)...)

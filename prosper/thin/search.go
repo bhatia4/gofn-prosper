@@ -15,6 +15,7 @@ type (
 		Rating                                    []string
 		ListingStartDate                          interval.TimeRange
 		ListingStatus                             []int
+		ListingTerm								  []int
 	}
 
 	// SearchParams specifies parameters to the Search.

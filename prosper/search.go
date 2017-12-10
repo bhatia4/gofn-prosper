@@ -72,6 +72,19 @@ const (
 	ListingStatusUnknown             ListingStatus = -1
 )
 
+// ListingTerm is term of loan listing. Currently on two possible values
+// 36 mos (3 years) & 60 mos.(5 years)
+type ListingTerm int8
+
+// Set of possible ListingTerm values.
+const (
+	ListingTerm36Months              ListingTerm = 36
+	ListingTerm60Months              ListingTerm = 60
+	ListingTermMin                   ListingTerm = ListingTerm36Months
+	ListingTermMax                   ListingTerm = ListingTerm60Months
+	ListingTermUnknown               ListingTerm = -1
+)
+
 // ListingNumber represents the unique identifier associated with a listing.
 type ListingNumber int64
 
@@ -124,7 +137,7 @@ type Listing struct {
 	ListingStartDate                          time.Time
 	ListingStatus                             ListingStatus
 	ListingStatusReason                       string
-	ListingTerm                               int64
+	ListingTerm                               ListingTerm
 	ListingTitle                              string
 	MaxPriorProsperLoan                       float64
 	MemberKey                                 string
@@ -183,6 +196,7 @@ type (
 		Rating                                    []Rating
 		ListingStartDate                          interval.TimeRange
 		ListingStatus                             []ListingStatus
+		ListingTerm								  []ListingTerm
 	}
 
 	// SearchParams specifies parameters to the Search.
@@ -254,6 +268,10 @@ func searchFilterToThinType(f SearchFilter) thin.SearchFilter {
 	for _, status := range f.ListingStatus {
 		listingStatus = append(listingStatus, int(status))
 	}
+	listingTerm := []int{}
+	for _, status := range f.ListingTerm {
+		listingTerm = append(listingTerm, int(status))
+	}
 	return thin.SearchFilter{
 		EstimatedReturn:                           f.EstimatedReturn,
 		IncomeRange:                               incomeRanges,
@@ -264,6 +282,7 @@ func searchFilterToThinType(f SearchFilter) thin.SearchFilter {
 		Rating:                                    ratings,
 		ListingStartDate:                          f.ListingStartDate,
 		ListingStatus:                             listingStatus,
+		ListingTerm:							   listingTerm,
 	}
 }
 

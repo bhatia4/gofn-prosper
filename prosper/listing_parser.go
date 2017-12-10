@@ -21,6 +21,10 @@ func (p defaultListingParser) Parse(r thin.SearchResult) (Listing, error) {
 	if err != nil {
 		return Listing{}, err
 	}
+	listingTerm, err := parseListingTerm(r.ListingTerm)
+	if err != nil {
+		return Listing{}, err
+	}
 	ficoScore, err := parseFicoScore(r.FicoScore)
 	if err != nil {
 		return Listing{}, err
@@ -118,7 +122,7 @@ func (p defaultListingParser) Parse(r thin.SearchResult) (Listing, error) {
 		OpenCreditLines:                           r.OpenCreditLines,
 		PriorProsperLoansActive:                   r.PriorProsperLoansActive,
 		PriorProsperLoansLateCycles:               r.PriorProsperLoansLateCycles,
-		ListingTerm:                               r.ListingTerm,
+		ListingTerm:                               listingTerm,
 		PriorProsperLoansOntimePayments:           r.PriorProsperLoansOntimePayments,
 		EstimatedReturn:                           r.EstimatedReturn,
 		IncomeVerifiable:                          r.IncomeVerifiable,
@@ -144,6 +148,13 @@ func parseListingStatus(listingStatus int64) (ListingStatus, error) {
 		return ListingStatusUnknown, fmt.Errorf("listing status out of range: %d, expected %d-%d", listingStatus, ListingStatusMin, ListingStatusMax)
 	}
 	return ListingStatus(listingStatus), nil
+}
+
+func parseListingTerm(listingTerm int64) (ListingTerm, error) {
+	if listingTerm < int64(ListingTermMin) || listingTerm > int64(ListingTermMax) {
+		return ListingTermUnknown, fmt.Errorf("listing term out of range: %d, expected %d-%d", listingTerm, ListingTermMin, ListingTermMax)
+	}
+	return ListingTerm(listingTerm), nil
 }
 
 func parseFicoScore(ficoScore string) (FicoScore, error) {
