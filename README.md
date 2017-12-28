@@ -1,4 +1,7 @@
-# Go Forth 'n Prosper (gofn-prosper)
+
+
+# Go Forth 'n Prosper (gofn-prosper) - bhatia4 Mod.
+Please note this fork modifies the original code found on mtlynch/gofn-prosper. For more info on the original codebase go to: https://github.com/mtlynch/gofn-prosper
 
 [![Build Status](https://travis-ci.org/mtlynch/gofn-prosper.svg?branch=master)](https://travis-ci.org/mtlynch/gofn-prosper)
 [![Coverage Status](https://coveralls.io/repos/github/mtlynch/gofn-prosper/badge.svg?branch=master)](https://coveralls.io/github/mtlynch/gofn-prosper?branch=master)
@@ -27,8 +30,8 @@ All Prosper actions take place through a `Client` interface. To create a `Client
 
 ```go
 import (
-  "github.com/mtlynch/gofn-prosper/prosper"
-  "github.com/mtlynch/gofn-prosper/prosper/auth"
+  "github.com/bhatia4/gofn-prosper/prosper"
+  "github.com/bhatia4/gofn-prosper/prosper/auth"
 )
 
 client := prosper.NewClient(auth.ClientCredentials{
