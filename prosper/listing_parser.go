@@ -143,6 +143,10 @@ func parseIncomeRange(incomeRange int64) (IncomeRange, error) {
 	return IncomeRange(incomeRange), nil
 }
 
+func ParseIncomeRange(incomeRange int64) (IncomeRange, error) {
+	return parseIncomeRange(incomeRange)
+}
+
 func parseListingStatus(listingStatus int64) (ListingStatus, error) {
 	if listingStatus < int64(ListingStatusMin) || listingStatus > int64(ListingStatusMax) {
 		return ListingStatusUnknown, fmt.Errorf("listing status out of range: %d, expected %d-%d", listingStatus, ListingStatusMin, ListingStatusMax)
@@ -150,11 +154,19 @@ func parseListingStatus(listingStatus int64) (ListingStatus, error) {
 	return ListingStatus(listingStatus), nil
 }
 
+func ParseListingStatus(listingStatus int64) (ListingStatus, error) {
+	return parseListingStatus(listingStatus)
+}
+
 func parseListingTerm(listingTerm int64) (ListingTerm, error) {
 	if listingTerm < int64(ListingTermMin) || listingTerm > int64(ListingTermMax) {
 		return ListingTermUnknown, fmt.Errorf("listing term out of range: %d, expected %d-%d", listingTerm, ListingTermMin, ListingTermMax)
 	}
 	return ListingTerm(listingTerm), nil
+}
+
+func ParseListingTerm(listingTerm int64) (ListingTerm, error) {
+	return parseListingTerm(listingTerm)
 }
 
 func parseFicoScore(ficoScore string) (FicoScore, error) {

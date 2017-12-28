@@ -92,6 +92,9 @@ func parseRating(rating string) (Rating, error) {
 	}
 	return parsed, nil
 }
+func ParseRating(rating string) (Rating, error) {
+	return parseRating(rating)
+}
 
 func parseNoteStatus(noteStatus int64) (NoteStatus, error) {
 	if noteStatus < int64(NoteStatusMin) || noteStatus > int64(NoteStatusMax) {
